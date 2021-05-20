@@ -2,7 +2,6 @@ import React,{useState,useRef,useEffect} from 'react'
 import firebase from 'firebase/app';
 import './chatroom.css'
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import ParticlesBg from 'particles-bg'
 
 
 function ChatRoom({auth,firestore}) {
@@ -10,55 +9,62 @@ function ChatRoom({auth,firestore}) {
     const messagesRef = firestore.collection('readings');
     const query = messagesRef.orderBy('arrivedAt').limit(25);
     const [messages] = useCollectionData(query, { idField: 'id' });
-    const [sensor,setsensor] = useState('Smoke Sensor');
-    const [svalue,setsvalue] = useState('LOW');
    
+  
     
-    const sendMessage = async (e) => {
-      e.preventDefault();
+    const sendMessage = async () => {
+    
       const { uid, photoURL,displayName } = auth.currentUser;
+      const val = ['HIGH','LOW']
+      
+      let svalue,svalue1,svalue2;
+   
+   //generating random sensor data   
      
-      await messagesRef.add({
-        name: sensor,
+    svalue =Math.floor(Math.random()*200 +200)
+    await messagesRef.add({
+        name: 'Smoke Sensor',
         value:svalue,
         arrivedAt: firebase.firestore.FieldValue.serverTimestamp(),
         uid,
         photoURL,
         user:displayName
       })
-  
-      setsensor('Smoke Sensor');
-      setsvalue('')
-      dummy.current.scrollIntoView({ behavior: 'smooth' });
-      
+
+      svalue1 = val[Math.floor(Math.random()*val.length)]
+      await messagesRef.add({
+          name:"PIR Sensor" ,
+          value:svalue1,
+          arrivedAt: firebase.firestore.FieldValue.serverTimestamp(),
+          uid,
+          photoURL,
+          user:displayName
+        })
+      svalue2 = val[Math.floor(Math.random()*val.length)]
+      await messagesRef.add({
+            name: "Window Sensor",
+            value:svalue2,
+            arrivedAt: firebase.firestore.FieldValue.serverTimestamp(),
+            uid,
+            photoURL,
+            user:displayName
+          })
+     
+         
     }
-  
+     useEffect(() => {
+        console.log("iss bar toh chla bhai")  
+       setTimeout(sendMessage,10000);
+     }, [])
+    
     return (<>
       <main>
         {messages && messages.map(msg => <ChatMessage auth={auth} key={msg.id} message={msg}  />)}
         <span ref={dummy}></span>
       </main>
      
-      <form onSubmit={sendMessage}>
-     
-      <h1>Enter your sensor readings</h1>
-        <span>Sensor Type</span>
-        <select value={sensor} onChange={(e)=>setsensor(e.target.value)}>
-          <option defaultValue value="Smoke Sensor">Smoke Sensor</option>
-          <option value="PIR Sensor">PIR Sensor</option>
-          <option  value="Window Sensor">Window Sensor</option> 
-        </select>
-        <span>Sensor Reading</span>
-        {sensor==="Smoke Sensor" ? <input type="number" value={svalue} onChange={(e)=>setsvalue(e.target.value)} />: <select
-         value={svalue} onChange={(e)=>setsvalue(e.target.value)}>
-          <option defaultValue value="LOW">LOW</option>
-          <option value="HIGH">HIGH</option>
-         
-        </select>}
-        
+    
        
-        <button type="submit" >Send your Reading to cloud</button>
-      </form>
     </>)
   }
 
@@ -69,14 +75,14 @@ function ChatMessage({message}) {
     
      useEffect(() => {
       if(name==="Smoke Sensor" && parseInt(value) >300 )
-      setwarning(" ,a Fire started in your home. ")
+      setwarning(" ,a Fire started in your home at ")
     else if(name==="PIR Sensor" && value==="HIGH") 
     {
-      setwarning(" ,a person was detected inside your home.")
+      setwarning(" ,a person was detected inside your home at ")
     }
     else if(name==="Window Sensor" && value==="HIGH") 
     {
-      setwarning(" ,someone just entered your home through your window.")
+      setwarning(" ,someone just entered your home through your window at ")
     }
    
      }, [])
@@ -89,7 +95,7 @@ function ChatMessage({message}) {
         <p>House Owner: {user} <br /> Sensor Name: {name} <br />Sensor value: {value}</p>
      </div>
      {warning &&<div className="message error"> 
-        <p>{user}{warning}</p>
+        <p>{user}{warning}{arrivedAt && arrivedAt.toDate().toString()}</p>
      </div>}
      
     </>)

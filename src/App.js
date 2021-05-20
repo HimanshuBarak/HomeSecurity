@@ -13,12 +13,12 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 
 firebase.initializeApp({
-  apiKey: "AIzaSyDC1KO2whA-C9lcICSoZNqFhuru8LD6sy8",
-  authDomain: "homesecurity-7225a.firebaseapp.com",
-  projectId: "homesecurity-7225a",
-  storageBucket: "homesecurity-7225a.appspot.com",
-  messagingSenderId: "980796948338",
-  appId: "1:980796948338:web:af3174785d0629c4f1e7eb"
+  apiKey: "AIzaSyCWq7GDaj8qbbvo4iVILrfHqbF0CYMB4hk",
+    authDomain: "security-ff744.firebaseapp.com",
+    projectId: "security-ff744",
+    storageBucket: "security-ff744.appspot.com",
+    messagingSenderId: "824027621738",
+    appId: "1:824027621738:web:b35303f71e14d6e4565d13"
 })
 
 
@@ -29,10 +29,10 @@ const firestore = firebase.firestore();
 function App() {
  
   const [user] = useAuthState(auth);
-
+  
   return (
     <div className="App">
-      <ParticlesBg type="cobweb" color="#FFFFFF" num="300" bg={true} />
+     
       <header>
         <h1 style={{fontSize:"clamp(18px,6vw,38px)"}}>HomeSecurity Panel</h1>
         <SignOut auth={auth}/>
