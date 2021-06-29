@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# HomeSecurity
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Live Demo - [https://security-ff744.web.app/](https://security-ff744.web.app/).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Table of Content
+- [Description](#description)
+- [Usage](#usage)
+- [Author Info](#author-info)
+- [Issues](#issues)
+- [Contribution](#contribution)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I made this project as my Jcomponent for my Distributed Real Time System Course. I have used firebase authentication and firebase database for this project alongside with React Js.Working - 10 secs after the user logins sensor data for 3 sensors is generated randomly and send to firebase database. If the value of the sensors is greater than threshold values than a alert is displayed in the console. I have hosted this webapp using Firebase. 
 
-### `npm test`
+## Usage 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Fork the repo and then clone it or download it.  
 
-### `npm run build`
+2. Install all the dependencies:
+```
+ npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. To run
+```
+ npm start
+```
+4. You will also need to create a firebase account and connect your react app to the firebase database.
+## Author Info
+Linkedin - [Himanshu Barak](https://www.linkedin.com/in/himanshu-barak-002714118)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Instagram - [__himanshu_0_0](https://www.instagram.com/__himanshu_0_0/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Issues
+Feel free to submit issues and enhancement requests.
 
-### `npm run eject`
+And if you liked the project, show your support by leaving a 🌟!! 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contribution
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+In general, we follow the "fork-and-pull" Git workflow.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the repo on GitHub
+2. Clone the project to your own machine
+3. Commit changes to your own branch
+4. Push your work back up to your fork
+5. Submit a Pull request so that we can review your changes
