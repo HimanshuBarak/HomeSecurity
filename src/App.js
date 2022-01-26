@@ -12,14 +12,7 @@ import ParticlesBg from 'particles-bg'
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 
-firebase.initializeApp({
-  apiKey: "AIzaSyCWq7GDaj8qbbvo4iVILrfHqbF0CYMB4hk",
-    authDomain: "security-ff744.firebaseapp.com",
-    projectId: "security-ff744",
-    storageBucket: "security-ff744.appspot.com",
-    messagingSenderId: "824027621738",
-    appId: "1:824027621738:web:b35303f71e14d6e4565d13"
-})
+//intialize your firebase app => api key ,project id etc 
 
 
 const auth = firebase.auth();
